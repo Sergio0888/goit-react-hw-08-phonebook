@@ -11,14 +11,12 @@ class App extends Component {
     filter: ''
   }
 
-  addContact = (props) => {
-    const { name, number } = props;
+  addContact = ({ name, number }) => {
     const searchName = this.state.contacts.map(({name}) => name);
     
         if (searchName.includes(name)) {
           return alert(`${name} is already in contacts`);
         }
-        
         const id = nanoid();
         const newContact = {name, number, id};
     
