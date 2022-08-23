@@ -11,11 +11,28 @@ class App extends Component {
     filter: ''
   }
 
+  componentDidMount(){
+    const contacts = JSON.parse(localStorage.getItem("contacts"));
+    
+    if(contacts?.length) {
+        this.setState({
+          contacts
+        })
+    }
+  };
+  
+  componentDidUpdate(_, prevState) {
+    const {contacts} = this.state;
+    if (prevState.contacts !== contacts) {
+      localStorage.setItem("contacts", JSON.stringify(contacts))
+    }
+  };
+  
   addContact = ({ name, number }) => {
     const searchName = this.state.contacts.map(({name}) => name);
     
-        if (searchName.includes(name)) {
-          return alert(`${name} is already in contacts`);
+    if (searchName.includes(name)) {
+      return alert(`${name} is already in contacts`);
         }
         const id = nanoid();
         const newContact = {name, number, id};
@@ -60,20 +77,6 @@ class App extends Component {
     return filtredContacts;
   };
 
-  componentDidMount(){
-    const contacts = JSON.parse(localStorage.getItem("contacts"));
-    
-    if(contacts?.length) {
-        this.setState({
-          contacts
-        })
-    }
-  };
-
-  componentDidUpdate(){
-    const {contacts} = this.state;
-    localStorage.setItem("contacts", JSON.stringify(contacts));
-  };
 
   render() {
 
