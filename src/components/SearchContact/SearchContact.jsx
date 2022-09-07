@@ -3,14 +3,15 @@ import styles from './searchcontact.module.css';
 
 
 
-const Filter = ({searchInput}) => {
+const Filter = ({value, onChange}) => {
 
     return (
         <div className={styles.box}>
             <p className={styles.text}>Find contacts by name</p>
             <input 
             type="text"
-            onChange={searchInput}
+            value={value}
+            onChange={onChange}
             />
         </div>
     )
@@ -19,5 +20,6 @@ const Filter = ({searchInput}) => {
 export default Filter;
 
 Filter.propTypes = {
-    searchInput : PropTypes.func.isRequired
-  };
+    onChange : PropTypes.func.isRequired,
+    value: PropTypes.string,
+};
