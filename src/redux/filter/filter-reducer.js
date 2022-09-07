@@ -1,10 +1,8 @@
-import { createReducer } from '@reduxjs/toolkit';
-import { setFilter } from './filter-actions';
+import { createReducer } from "@reduxjs/toolkit";
+import { setFilter } from "./filter-action";
 
 const initialState = '';
 
-const filterReducer  = createReducer(initialState, {
-    [setFilter]: (_, { payload }) => payload,
-});
-
-export default filterReducer;
+export const filterReducer = createReducer(initialState, {
+    [setFilter]: (_, {payload}) => payload
+})

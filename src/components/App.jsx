@@ -1,15 +1,14 @@
 import styles from './app.module.css';
-// import { useState, useEffect } from 'react';
 import ContactList from './ElementContact/ElementContact';
 import Filter from './SearchContact/SearchContact';
 import ContactForm from './FormContact/FormContact';
-// import { nanoid } from 'nanoid';
+
 
 import { useSelector, useDispatch } from 'react-redux';
 import { addContacts, removeContacts } from 'redux/items/items-action';
 import { getContacts } from 'redux/items/items-selector';
 import { getFilter } from 'redux/filter/filter-selector';
-import { setFilter } from 'redux/filter/filter-actions';
+import { setFilter } from 'redux/filter/filter-action';
 
 const App = () => {
 
@@ -40,7 +39,6 @@ const App = () => {
   };
 
   const filtredArray = getFiltredContacts();
-  
 
 return (
       <div className={styles.box}>
