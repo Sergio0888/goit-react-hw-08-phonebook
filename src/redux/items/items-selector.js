@@ -1,1 +1,2 @@
-export const getContacts = store => store.contacts.contacts;
+export const fetchContacts = ({contacts}) => contacts.items;
+export const getState = ({contacts}) => ({loading: contacts.loading, error: contacts.error});

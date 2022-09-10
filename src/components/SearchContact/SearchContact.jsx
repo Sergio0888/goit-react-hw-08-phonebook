@@ -7,9 +7,11 @@ const Filter = ({value, onChange}) => {
 
     return (
         <div className={styles.box}>
-            <p className={styles.text}>Find contacts by name</p>
+            <p className={styles.text}>Найти по имени</p>
             <input 
+            className={styles.input}
             type="text"
+            placeholder=' Введите имя для поиска'
             value={value}
             onChange={onChange}
             />

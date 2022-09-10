@@ -2,14 +2,15 @@ import styles from './elementcontact.module.css';
 import PropTypes from 'prop-types';
 
 
-const ContactList = ({contacts, removeContact}) => {
+const ContactList = ({contacts, deleteContact}) => {
 
-    const elements = contacts.map(({name,number, id}) => {
+    const elements = contacts.map(({name, phone, id}) => {
       return (
         <li className={styles.item} key={id}>
-          <p className={styles.name}>{name}: {number}</p>
+          <p className={styles.text}>Имя: {name} </p>
+          <p className={styles.text}>Телефон: {phone}</p>
           <button type="button" className={styles.btn}
-                onClick={() => removeContact(id)}>Delete</button>
+                onClick={() => deleteContact(id)}>X</button>
         </li>
         )
     });
@@ -26,8 +27,8 @@ export default ContactList;
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired
   })).isRequired,
-  removeContact: PropTypes.func.isRequired
+  deleteContact: PropTypes.func.isRequired
 }
