@@ -54,7 +54,7 @@ return (
           <h2 className={styles.title}>Книга контактов</h2>
           <Filter value={filter}
           onChange={event => dispatch(setFilter(event.currentTarget.value))} />
-          {error && <p className={styles.error}>Не удалось загрузить контакты!</p>}
+          {error && <p className={styles.error}>Не удалось загрузить контакты! </p>}
           {loading ? <p className={styles.loading}>...Loading</p> : <ContactList  contacts={filtredArray} deleteContact={onDeleteContact}/>}
           
         </div>
