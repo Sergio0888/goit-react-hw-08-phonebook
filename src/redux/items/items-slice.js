@@ -29,7 +29,8 @@ const contactsSlice = createSlice({
         },
         [addContacts.fulfilled]: (store, {payload}) => {
             store.loading = false;
-            store.items.push(payload)
+            console.log(payload)
+            store.items.push(payload);
         },
         [addContacts.rejected]: (store, {payload}) => {
             store.loading = false;
