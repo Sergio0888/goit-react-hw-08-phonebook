@@ -1,0 +1,28 @@
+.list {
+  display: flex;
+}
+
+.item {
+  &:not(:first-child) {
+    margin-left: 15px;
+  }
+}
+
+.link {
+  font-size: 22px;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  transition: 250ms;
+
+  &Active {
+    font-size: 24px;
+    composes: link;
+    color: #3a82bd;
+  }
+
+  &:hover,
+  &:focus {
+    color: #2196f3;
+  }
+}
